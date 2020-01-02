@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="SpotMicroAI">
+    
+    <group name="base">
+        <link name="base_link"/>
+    </group>
+
+    	<group name="front_left">
+        	<chain base_link="base_link" tip_link="front_left_toe_link"/>
+    	</group>
+    	<group name="front_right">
+        	<chain base_link="base_link" tip_link="front_right_toe_link"/>
+    	</group>
+    	<group name="rear_left">
+        	<chain base_link="base_link" tip_link="rear_left_toe_link"/>
+    	</group>
+    	<group name="rear_right">
+        	<chain base_link="base_link" tip_link="rear_right_toe_link"/>
+    	</group>
+    
+
+   <group name="chains">
+      <group name="front_left"/>
+      <group name="front_right"/>
+      <group name="rear_left"/>
+      <group name="rear_right"/>
+   </group>
+
+<group_state name="home" group="chains">
+
+	<joint name="front_left_shoulder" value="0.0"/>
+        <joint name="front_left_leg" value="-0.75"/>
+        <joint name="front_left_foot" value="1.5"/>
+
+        <joint name="front_right_shoulder" value="0.0"/>
+        <joint name="front_right_leg" value="-0.75"/>
+        <joint name="front_right_foot" value="1.5"/>
+
+	<joint name="rear_left_shoulder" value="0.0"/>
+        <joint name="rear_left_leg" value="-0.75"/>
+        <joint name="rear_left_foot" value="1.5"/>
+
+        <joint name="rear_right_shoulder" value="0.0"/>
+        <joint name="rear_right_leg" value="-0.75"/>
+        <joint name="rear_right_foot" value="1.5"/>
+        
+</group_state>
+</robot>

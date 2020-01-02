@@ -1,0 +1,37 @@
+solver_options:
+    front_end: "ihqp"
+    back_end: "qpoases"
+    regularization: 1e-4
+
+stack:
+    - ["front_left", "front_right", "rear_left", "rear_right"]
+    
+constraints: ["JointLimits", "VelocityLimits"]
+
+front_left:
+    type: "Cartesian"
+    distal_link: "front_left_toe_link"
+    base_link: "base_link"
+    lambda: 0.1
+    indices: [0,1,2]
+
+front_right:
+    type: "Cartesian"
+    distal_link: "front_right_toe_link"
+    base_link: "base_link"
+    lambda: 0.1
+    indices: [0,1,2]
+
+rear_left:
+    type: "Cartesian"
+    distal_link: "rear_left_toe_link"
+    base_link: "base_link"
+    lambda: 0.1
+    indices: [0,1,2]
+
+rear_right:
+    type: "Cartesian"
+    distal_link: "rear_right_toe_link"
+    base_link: "base_link"
+    lambda: 0.1
+    indices: [0,1,2]
